@@ -10,27 +10,26 @@ function generatePassword() {
     uppercase: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
   }
 
-  var characterTypes = {
+  var charTypes = {
     length: Number(prompt("Enter a password length between 8 and 128")), 
-    // special: confirm("Click ok to confirm including special characters"),
     numeric: confirm("Click ok to confirm including numeric characters"),
-    // lower: confirm("Click ok to confirm including lowercase characters"),
+    // special: confirm("Click ok to confirm including special characters"),
+    lower: confirm("Click ok to confirm including lowercase characters"),
     // upper: confirm("Click ok to confirm including uppercase characters")
   };
-  var finalPassword = "";
-  for (var i = 0; i < characterTypes.length; i++) {
-    finalPassword += characterTypes.numeric(Math.floor(Math.random() * characterTypes.numeric.length));
-
+  var finalPassword = [];
+  if (charTypes.numeric === true) {
+    var newPassword = characterList.numeric[Math.floor(Math.random()*characterList.numeric.length)];
+    finalPassword.push(newPassword)
+    console.log(finalPassword)
+  } else if {
+    
+  }
+  else {
+    console.log("Can't generate Password.")
   }
 
-  // if (charSet.numeric === true) {
-  //   var newPassword= (characterList.numeric[Math.floor(Math.random()*characterList.numeric.length)]);
-  //   finalPassword.push(newPassword);
-  // }
 
-console.log(finalPassword);
-console.log(charSet.numeric);
-  console.log("Button clicked");
   return finalPassword;
 }
 // Get references to the #generate element
@@ -42,7 +41,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
