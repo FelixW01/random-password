@@ -2,43 +2,58 @@
 
 function generatePassword() {
   
-
+  var finalPassword = [];
+  var chosenChar = [];
   var characterList = {
     special: ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '='],
     numeric: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
     lowerCase: ['a', 'b', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
     upperCase: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
   }
+  var charLength = Number(prompt("Enter a password length between 8 and 128"));
 
-  var charTypes = {
-    length: Number(prompt("Enter a password length between 8 and 128")), 
+  if (charLength < 8 || charLength > 128) {
+    alert("Password length must be between 8 to 128 characters.");
+    return;
+  }
+  console.log(charLength);
+
+  var charTypes = { 
     numeric: confirm("Click ok to confirm including numeric characters"),
     lower: confirm("Click ok to confirm including lowercase characters"),
     upper: confirm("Click ok to confirm including uppercase characters"),
     special: confirm("Click ok to confirm including special characters")
   };
-    if (charTypes.length > 8 || charTypes.length < 128) {
-      alert("Password length must be between 8 to 128 characters.");
-    };
 
-  var finalPassword = [];
     if (charTypes.numeric === true) {
-      var newPassword = characterList.numeric[Math.floor(Math.random()*characterList.numeric.length)];
-      finalPassword.push(newPassword)
+      chosenChar.concat(characterList.numeric)
     } if (charTypes.lower === true) {
-      var newPassword = characterList.lowerCase[Math.floor(Math.random()*characterList.lowerCase.length)];
-      finalPassword.push(newPassword)
+      chosenChar.concat(characterList.lowerCase)
     } if (charTypes.upper === true) {
-      var newPassword = characterList.upperCase[Math.floor(Math.random()*characterList.upperCase.length)];
-      finalPassword.push(newPassword)
+      chosenChar.concat(characterList.upperCase)
     } if (charTypes.special === true) {
-      var newPassword = characterList.special[Math.floor(Math.random()*characterList.special.length)];
-      finalPassword.push(newPassword)
-    } else {
-      console.log("Can't generate Password.")
+      chosenChar.concat(characterList.special)
     }
+    
+    console.log(">>>" + chosenChar + "<<<");
+
+    // if (charTypes.numeric === true) {
+    //   var newPassword = characterList.numeric[Math.floor(Math.random()*characterList.numeric.length)];
+    //   finalPassword.push(newPassword)
+    // } if (charTypes.lower === true) {
+    //   var newPassword = characterList.lowerCase[Math.floor(Math.random()*characterList.lowerCase.length)];
+    //   finalPassword.push(newPassword)
+    // } if (charTypes.upper === true) {
+    //   var newPassword = characterList.upperCase[Math.floor(Math.random()*characterList.upperCase.length)];
+    //   finalPassword.push(newPassword)
+    // } if (charTypes.special === true) {
+    //   var newPassword = characterList.special[Math.floor(Math.random()*characterList.special.length)];
+    //   finalPassword.push(newPassword)
+    // } else {
+    //   console.log("Can't generate Password.")
+    // }
     console.log(">>>" + finalPassword + "<<<");
-    return finalPassword.toString();
+    return finalPassword.join("");
   }
   
 
