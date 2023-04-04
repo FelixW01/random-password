@@ -35,12 +35,13 @@ function generatePassword() {
     }
 
 
+  const newChosenChar = chosenChar.flat(1)
+
     for (let i = 0; i < charLength; i++) {
-      var randomIndex = [Math.floor(Math.random()*chosenChar.length)];
-      var randomChar = chosenChar[randomIndex];
-      finalPassword.push(randomChar);
+      var randomIndex = Math.floor(Math.random()*newChosenChar.length);
+      finalPassword.push(newChosenChar[randomIndex]); 
     }
-    console.log(">>>" + finalPassword + "<<<");
+
     return finalPassword.join("");
   }
   
