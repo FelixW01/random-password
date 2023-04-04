@@ -19,39 +19,27 @@ function generatePassword() {
   console.log(charLength);
 
   var charTypes = { 
-    numeric: confirm("Click ok to confirm including numeric characters"),
     lower: confirm("Click ok to confirm including lowercase characters"),
     upper: confirm("Click ok to confirm including uppercase characters"),
     special: confirm("Click ok to confirm including special characters")
   };
 
-    if (charTypes.numeric === true) {
-      chosenChar.concat(characterList.numeric)
-    } if (charTypes.lower === true) {
-      chosenChar.concat(characterList.lowerCase)
-    } if (charTypes.upper === true) {
-      chosenChar.concat(characterList.upperCase)
-    } if (charTypes.special === true) {
-      chosenChar.concat(characterList.special)
+    if (charTypes.numeric == true) {
+      chosenChar.push(characterList.numeric)
+    } if (charTypes.lower == true) {
+      chosenChar.push(characterList.lowerCase)
+    } if (charTypes.upper == true) {
+      chosenChar.push(characterList.upperCase)
+    } if (charTypes.special == true) {
+      chosenChar.push(characterList.special)
     }
-    
-    console.log(">>>" + chosenChar + "<<<");
 
-    // if (charTypes.numeric === true) {
-    //   var newPassword = characterList.numeric[Math.floor(Math.random()*characterList.numeric.length)];
-    //   finalPassword.push(newPassword)
-    // } if (charTypes.lower === true) {
-    //   var newPassword = characterList.lowerCase[Math.floor(Math.random()*characterList.lowerCase.length)];
-    //   finalPassword.push(newPassword)
-    // } if (charTypes.upper === true) {
-    //   var newPassword = characterList.upperCase[Math.floor(Math.random()*characterList.upperCase.length)];
-    //   finalPassword.push(newPassword)
-    // } if (charTypes.special === true) {
-    //   var newPassword = characterList.special[Math.floor(Math.random()*characterList.special.length)];
-    //   finalPassword.push(newPassword)
-    // } else {
-    //   console.log("Can't generate Password.")
-    // }
+
+    for (let i = 0; i < charLength; i++) {
+      var randomIndex = [Math.floor(Math.random()*chosenChar.length)];
+      var randomChar = chosenChar[randomIndex];
+      finalPassword.push(randomChar);
+    }
     console.log(">>>" + finalPassword + "<<<");
     return finalPassword.join("");
   }
