@@ -3,7 +3,9 @@ This application is a random password generator website designed to create a sec
 
 Application Link https://felixw01.github.io/random-password/
 
-![felixw01 github io_random-password_](https://user-images.githubusercontent.com/90164142/230197856-24d71b18-6fb6-4495-a342-6d79ede4cfef.png)
+![felixw01 github io_random-password_ (1)](https://user-images.githubusercontent.com/90164142/230199135-f3724cc6-a65e-4794-bbb0-27ce0229e16e.png)
+
 
 Credits
+
 starter code provided by -https://github.com/Xandromus
