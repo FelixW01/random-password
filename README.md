@@ -8,4 +8,4 @@ Application Link https://felixw01.github.io/random-password/
 
 Credits
 
-starter code provided by -https://github.com/Xandromus
+starter code provided by - https://github.com/Xandromus
