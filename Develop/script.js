@@ -14,15 +14,18 @@ function generatePassword() {
 
   if (charLength < 8 || charLength > 128) {
     alert("Password length must be between 8 to 128 characters.");
-    return;
+    return generatePassword();
   }
-  console.log(charLength);
 
   var charTypes = { 
     lower: confirm("Click ok to confirm including lowercase characters"),
     upper: confirm("Click ok to confirm including uppercase characters"),
     special: confirm("Click ok to confirm including special characters")
   };
+  if (charTypes.lower == false && charTypes.upper == false && charTypes.special == false) {
+    alert("Please choose at least 1 character type.");
+    return generatePassword();
+  }
 
     if (charTypes.numeric == true) {
       chosenChar.push(characterList.numeric)
