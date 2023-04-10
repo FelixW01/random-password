@@ -18,11 +18,12 @@ function generatePassword() {
   }
 
   var charTypes = { 
+    numeric: confirm("Click ok to confirm including numeric characters"),
     lower: confirm("Click ok to confirm including lowercase characters"),
     upper: confirm("Click ok to confirm including uppercase characters"),
     special: confirm("Click ok to confirm including special characters")
   };
-  if (charTypes.lower == false && charTypes.upper == false && charTypes.special == false) {
+  if (charTypes.lower == false && charTypes.upper == false && charTypes.special == false && charTypes.numeric == false) {
     alert("Please choose at least 1 character type.");
     return generatePassword();
   }
